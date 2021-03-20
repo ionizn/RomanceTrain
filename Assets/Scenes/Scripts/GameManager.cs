@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,13 +11,13 @@ public class GameManager : MonoBehaviour
     public GameObject StartLogo;
 
     public GameObject Shelter;
+    public GameObject[] Shelters;
+    bool[] used;
     public GameObject ArrivePlanet;
 
     public GameObject MiddleBossPrefab;
     public GameObject LastBossPrefab;
-
-    public Transform VicotryPanel;
-
+    
     float elapsedTime = 0f;
     float TotalTime = 0f;
     private bool check = false;
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
     int DiagolonCount = 0;
     int StageCount = 0;
     int Count = 0;
-
+    public Health playerHealth;
 
     public static bool StartStage = false;
     [SerializeField] private Slider slider;
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
     EnemyPattern WavePattern = EnemyPattern.TestEnemy;
 
     int lastStage = 0;
-    bool started = false;
+    bool nextPhaseStarted = false;
 
     enum PROGRESS
     {
@@ -55,6 +56,11 @@ public class GameManager : MonoBehaviour
         Stage2Enemy,
         Stage3Enemy,
         Stage4Enemy
+    }
+
+    private void Awake()
+    {
+        used = Enumerable.Repeat<bool>(false, 5).ToArray<bool>();
     }
 
     IEnumerator Stage1Enemy()
@@ -232,20 +238,32 @@ public class GameManager : MonoBehaviour
             case PROGRESS.Stage0:
                 TotalTime += Time.deltaTime;
 
-                if (started == false)
+                if (nextPhaseStarted == false)
                 {
+                    playerHealth.hp = 10;
                     slider.value = 0;
                     slider.maxValue = 2;
-                    started = true;
+                    nextPhaseStarted = true;
                 }
 
                 if (elapsedTime >= 2)
                 {
+                    //쉘터 선택
+                    while(true)
+                    {
+                        int sel = Random.Range(0, 5);
+                        if(!used[sel])
+                        {
+                            Shelter = Shelters[sel];
+                            used[sel] = true;
+                            break;
+                        }
+                    }
                     Instantiate(Shelter);
                     progress = PROGRESS.SHELTER;
                     StageCount = 1;
                     elapsedTime = 0f;
-                    started = false;
+                    nextPhaseStarted = false;
 
                 }
                 break;
@@ -253,11 +271,12 @@ public class GameManager : MonoBehaviour
             case PROGRESS.Stage1:
                 TotalTime += Time.deltaTime;
 
-                if(started == false)
+                if(nextPhaseStarted == false)
                 {
+                    playerHealth.hp = 10;
                     slider.value = 0;
                     slider.maxValue = 100;
-                    started = true;
+                    nextPhaseStarted = true;
                 }
 
                 switch (WavePattern)
@@ -275,13 +294,23 @@ public class GameManager : MonoBehaviour
                 if (Count == 20)
                 {
                     StopCoroutine("Stage1Enemy");
-
+                    //쉘터 선택
+                    while (true)
+                    {
+                        int sel = Random.Range(0, 5);
+                        if (!used[sel])
+                        {
+                            Shelter = Shelters[sel];
+                            used[sel] = true;
+                            break;
+                        }
+                    }
                     Instantiate(Shelter);
                     progress = PROGRESS.SHELTER;
                     StageCount = 2;
                     Count = 0;
                     elapsedTime = 0f;
-                    started = false;
+                    nextPhaseStarted = false;
 
                 }
                 break;
@@ -289,11 +318,12 @@ public class GameManager : MonoBehaviour
             case PROGRESS.Stage2:
                 TotalTime += Time.deltaTime;
 
-                if (started == false)
+                if (nextPhaseStarted == false)
                 {
+                    playerHealth.hp = 10;
                     slider.value = 0;
                     slider.maxValue = 100;
-                    started = true;
+                    nextPhaseStarted = true;
                 }
 
                 // 적 생성
@@ -313,25 +343,36 @@ public class GameManager : MonoBehaviour
                 if (Count == 24)
                 {
                     StopCoroutine("Stage2Enemy");
-
+                    //쉘터 선택
+                    while (true)
+                    {
+                        int sel = Random.Range(0, 5);
+                        if (!used[sel])
+                        {
+                            Shelter = Shelters[sel];
+                            used[sel] = true;
+                            break;
+                        }
+                    }
                     Instantiate(Shelter);
                     progress = PROGRESS.SHELTER;
                     StageCount = 3;
                     Count = 0;
                     elapsedTime = 0f;
 
-                    started = false;
+                    nextPhaseStarted = false;
                 }
                 break;
 
             case PROGRESS.Stage3:
                 TotalTime += Time.deltaTime;
 
-                if (started == false)
+                if (nextPhaseStarted == false)
                 {
+                    playerHealth.hp = 10;
                     slider.value = 0;
                     slider.maxValue = 180;
-                    started = true;
+                    nextPhaseStarted = true;
                 }
 
                 // 적 생성
@@ -357,7 +398,7 @@ public class GameManager : MonoBehaviour
                     StageCount = 4;
                     Count = 0;
                     elapsedTime = 0f;
-                    started = false;
+                    nextPhaseStarted = false;
 
                 }
                 break;
@@ -366,11 +407,12 @@ public class GameManager : MonoBehaviour
                 TotalTime += Time.deltaTime;
 
         
-                if (started == false)
+                if (nextPhaseStarted == false)
                 {
+                    playerHealth.hp = 10;
                     slider.value = 0;
                     slider.maxValue = 180;
-                    started = true;
+                    nextPhaseStarted = true;
                 }
 
                 // 적 생성

@@ -305,7 +305,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -767,7 +767,7 @@ RectTransform:
   m_LocalScale: {x: 40, y: 40, z: 0}
   m_Children: []
   m_Father: {fileID: 2090886196}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1148,7 +1148,7 @@ PrefabInstance:
     - target: {fileID: 2616926737545094739, guid: fe41f78c4ee3d5b4c92384407129d617,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2616926737545094739, guid: fe41f78c4ee3d5b4c92384407129d617,
         type: 3}
@@ -3249,10 +3249,16 @@ MonoBehaviour:
   StartLogo: {fileID: 8262837312090773550, guid: 7836fafdad062a84f90101a260ea4ecb,
     type: 3}
   Shelter: {fileID: 440216088246966213, guid: 24d3b0b3faf51f04da1ff6835cf74bdd, type: 3}
+  Shelters:
+  - {fileID: 6641233523969992800, guid: c676ba1ee0394974fb49d2dccb95213a, type: 3}
+  - {fileID: 127459712038312688, guid: 3a90c9591a768a844afecb1f1f2ef6b9, type: 3}
+  - {fileID: 2174271164738633764, guid: 02754e13ddae9c64089d01daa8cba864, type: 3}
+  - {fileID: 9103517991193603010, guid: 3ddcc5102840e534b9268cdbaefd109c, type: 3}
+  - {fileID: 6722470873917549995, guid: 37c10b5f39ef1f14fae4dfc5df2074a2, type: 3}
   ArrivePlanet: {fileID: 0}
   MiddleBossPrefab: {fileID: 0}
   LastBossPrefab: {fileID: 0}
-  VicotryPanel: {fileID: 1864835680}
+  playerHealth: {fileID: 70347043}
   slider: {fileID: 158457478}
 --- !u!1 &1792247512
 GameObject:
@@ -4270,8 +4276,8 @@ RectTransform:
   - {fileID: 1738685587}
   - {fileID: 1016600539}
   - {fileID: 112233228}
-  - {fileID: 298046184}
   - {fileID: 442599163}
+  - {fileID: 298046184}
   - {fileID: 1984522415}
   m_Father: {fileID: 0}
   m_RootOrder: 4

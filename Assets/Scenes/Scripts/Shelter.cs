@@ -9,6 +9,7 @@ public class Shelter : MonoBehaviour
     {
         Vector3 pos = new Vector3(34f, -9f, 0f);
         gameObject.transform.Translate(pos);
+        //GetComponent<SpriteRenderer>().sortingOrder = 1;
     }
     //5~-1
     // Update is called once per frame

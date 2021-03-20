@@ -92,7 +92,7 @@ public class Health : MonoBehaviour
     IEnumerator DelayDestroy()
     {
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         ObjectPool.Instance.PushToPool(itemName, gameObject);
     }
 }

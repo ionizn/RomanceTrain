@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
         audio.loop = false;
         GameObject.Find("Earth").transform.position = train_poss[0].position;
         TrainHead.transform.position = new Vector3(train_poss[1].position.x, train_poss[1].position.y + 1f, TrainHead.transform.position.z);
+        GetComponent<BoxCollider2D>().offset = new Vector2(-19f, GetComponent<BoxCollider2D>().offset.y);
     }
 
     ~Player()
@@ -50,8 +51,8 @@ public class Player : MonoBehaviour
     {
         if (trains.Count > 0)
         {
-            //if (Input.GetKeyDown(KeyCode.A))
-              //  AddTrain(Weapon.WeaponType.NORMAL);
+            if (Input.GetKeyDown(KeyCode.A))
+                AddTrain(Weapon.WeaponType.NORMAL);
             if (trains.Count >= 1)
                 if (trains[0] && Input.GetKey(KeyCode.Z))
                     trains[0].Attack();
@@ -96,6 +97,7 @@ public class Player : MonoBehaviour
         }
         GameObject.Find("Earth").transform.position = train_poss[i + 1].position;
         TrainHead.transform.position = new Vector3(train_poss[i + 2].position.x, train_poss[i + 2].position.y + 1f, TrainHead.transform.position.z);
+        GetComponent<BoxCollider2D>().offset = new Vector2(GetComponent<BoxCollider2D>().offset.x+7.5f, GetComponent<BoxCollider2D>().offset.y);
         temp.transform.position = train_poss[0].position;
         trains.Add(temp.GetComponentInChildren<Weapon>());
     }
