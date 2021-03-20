@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     {
         while (TestEnemycount <= 20)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.5f);
 
             //Random Pos
             float randomX = Random.Range(0f, 30f);
@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
     {
         while (TestEnemycount <= 40)
         {
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.75f);
 
             //Random Pos
             float randomX = Random.Range(0f, 30f);
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
     {
         while (TestEnemycount <= 80)
         {
-            yield return new WaitForSeconds(0.12f);
+            yield return new WaitForSeconds(0.36f);
 
             //Random Pos
             float randomX = Random.Range(0f, 30f);
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
     {
         while (TestEnemycount <= 100)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.3f);
 
             //Random Pos
             float randomX = Random.Range(0f, 30f);

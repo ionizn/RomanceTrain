@@ -55,7 +55,7 @@ public class Weapon : MonoBehaviour
                             GameObject bullet = ObjectPool.Instance.PopFromPool(bullet_name);
                             bullet.gameObject.GetComponent<Shot>().SetShotToPlayer(false);
                             bullet.gameObject.transform.position = transform.Find("Tip").transform.position;
-                            bullet.gameObject.GetComponent<Shot>().ShotAngle(transform.localRotation.z * 2.7f);
+                            bullet.gameObject.GetComponent<Shot>().ShotAngle(transform.localRotation.z * 2.15f);
                             bullet.gameObject.SetActive(true);
                             cool_time = ShootingRate;
                         }
@@ -82,7 +82,7 @@ public class Weapon : MonoBehaviour
                         {
                             r = Random.Range(0, 100) * 0.01f;
                             GameObject bullet = ObjectPool.Instance.PopFromPool(bullet_name);
-                            bullet.gameObject.GetComponent<Shot>().ShotAngle(transform.localRotation.z * 2.7f + r);
+                            bullet.gameObject.GetComponent<Shot>().ShotAngle(transform.localRotation.z * 1.6f + r);
                             bullet.gameObject.transform.position = transform.Find("Tip").transform.position;
                             bullet.gameObject.SetActive(true);
                         }

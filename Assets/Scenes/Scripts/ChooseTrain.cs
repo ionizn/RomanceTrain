@@ -13,25 +13,22 @@ public class ChooseTrain : MonoBehaviour
 
     public void OnClickCase1()
     {
-        int ran = Random.Range(1, 10);
+        int ran = Random.Range(9, 10);
 
         Debug.Log(ran);
 
         if(1 <= ran  && ran <= 4)
         {
-            Debug.Log("1");
             GameObject.Find("Player").GetComponent<Player>().AddTrain(Weapon.WeaponType.NORMAL);
             Weapon.weapon_type_Int = 0;
         }
         else if (5 <= ran && ran <= 8)
         {
-            Debug.Log("5");
             GameObject.Find("Player").GetComponent<Player>().AddTrain(Weapon.WeaponType.SHOTGUN);
             Weapon.weapon_type_Int = 1;
         }
         else
         {
-            Debug.Log("9");
             GameObject.Find("Player").GetComponent<Player>().AddTrain(Weapon.WeaponType.LASER);
             Weapon.weapon_type_Int = 2;
         }

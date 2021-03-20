@@ -8,7 +8,7 @@ public class Shelter : MonoBehaviour
     public GameObject UI;
     private void Start()
     {
-        Vector3 pos = new Vector3(34f, -7f, 0f);
+        Vector3 pos = new Vector3(34f, -9f, 0f);
         gameObject.transform.Translate(pos);
     }
     //5~-1
