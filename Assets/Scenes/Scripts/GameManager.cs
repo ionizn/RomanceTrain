@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject MiddleBossPrefab;
     public GameObject LastBossPrefab;
-    
+
+    public Scrolling[] scrolls;
     float elapsedTime = 0f;
     float TotalTime = 0f;
     private bool check = false;
@@ -132,7 +133,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ScrollStop()
+    {
+        foreach (Scrolling scroll in scrolls)
+        {
+            scroll.enabled = false;
+        }
 
+    }
+
+    public void ScrollStart()
+    {
+        foreach (Scrolling scroll in scrolls)
+        {
+            scroll.enabled = true;
+        }
+    }
 
     void SpawnPattern(EnemyPattern pattern)
     {
@@ -204,12 +220,17 @@ public class GameManager : MonoBehaviour
 
             case PROGRESS.SHELTER:
                 {
+
                     // 업그레이드 선택 대기 상태
                     //선택 하면 다음 페이즈로 이동
                     if (StartStage == true)
                     {
+
+                        ScrollStart();
+
                         switch (StageCount)
                         {
+
                             case 1:
                                 progress = PROGRESS.Stage1;
                                 WavePattern = EnemyPattern.Stage1Enemy;

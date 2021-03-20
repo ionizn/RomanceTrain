@@ -34,6 +34,7 @@ public class Shelter : MonoBehaviour
             Destroy(gameObject);
 
             GameObject.Find("ChooseTrains").GetComponent<ChooseTrain>().AttiveUpgrade();
+            GameObject.Find("GameManager").GetComponent<GameManager>().ScrollStop();
         }
     }
     
