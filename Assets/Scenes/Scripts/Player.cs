@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     public List<Transform> train_poss;
     List<Weapon> trains = new List<Weapon>();
+    GameObject TrainHead;
 
     void OnDestroy()
     {
@@ -30,13 +31,14 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
+        TrainHead = GameObject.Find("TrainHead");
         myRigid = GetComponent<Rigidbody2D>();
         m_Animator = gameObject.GetComponent<Animator>();
         audio = gameObject.AddComponent<AudioSource>();
         audio.clip = sound;
         audio.loop = false;
         GameObject.Find("Earth").transform.position = train_poss[0].position;
-        GameObject.Find("TrainHead").transform.position = train_poss[1].position;
+        TrainHead.transform.position = new Vector3(train_poss[1].position.x, train_poss[1].position.y + 1f, TrainHead.transform.position.z);
     }
 
     ~Player()
@@ -85,7 +87,7 @@ public class Player : MonoBehaviour
                 break;
         }
         temp.transform.parent = GameObject.Find("Player").transform;
-        temp.transform.localScale = new Vector3(9, 9, 9);
+        temp.transform.localScale = new Vector3(11, 11, 11);
         int i;
         for (i = 0; i < trains.Count; i++)
         {
@@ -93,7 +95,7 @@ public class Player : MonoBehaviour
             trains[i].transform.parent.position = train_poss[i + 1].position;
         }
         GameObject.Find("Earth").transform.position = train_poss[i + 1].position;
-        GameObject.Find("TrainHead").transform.position = train_poss[i + 2].position;
+        TrainHead.transform.position = new Vector3(train_poss[i + 2].position.x, train_poss[i + 2].position.y + 1f, TrainHead.transform.position.z);
         temp.transform.position = train_poss[0].position;
         trains.Add(temp.GetComponentInChildren<Weapon>());
     }
