@@ -35,6 +35,8 @@ public class Shot : MonoBehaviour
                 v = Vector3.Normalize(v);
                 v = new Vector3(-1f * moveSpeed, 0f, 0f);
 
+                Debug.Log(v);
+
                 gameObject.GetComponentInParent<Move>().SetDirection(v);
                 LastDir = v;
             }
