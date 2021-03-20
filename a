@@ -1,0 +1,183 @@
+[33mcommit 52f51569aad5492d1842598bbce633afe08773b5[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: 652fd8f cdf3d0a
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sun Mar 21 05:32:33 2021 +0900
+
+    Fixed_Code
+
+[33mcommit 652fd8f3bf87493a16720baa9bfe58821ebeeaec[m
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sun Mar 21 05:28:46 2021 +0900
+
+    Train_Anim
+
+[33mcommit cdf3d0ae96b18cbc0cfd174004e98781e4360e01[m
+Merge: 656eb8b 57fece7
+Author: jwi2018 <60511413+jwi2018@users.noreply.github.com>
+Date:   Sun Mar 21 05:13:22 2021 +0900
+
+    Merge branch 'master' of https://github.com/ionizn/RomanceTrain
+
+[33mcommit 656eb8b887602b456fe279d1a63ae0664e771c9d[m
+Author: jwi2018 <60511413+jwi2018@users.noreply.github.com>
+Date:   Sun Mar 21 05:13:18 2021 +0900
+
+    bullet
+    
+    bullet
+
+[33mcommit 57fece75e9c09d63ea79a916b3fbeb4d4c64d82c[m
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sun Mar 21 04:52:14 2021 +0900
+
+    Intro,Ending_Scene
+
+[33mcommit 8b3c707af32541c576cf5b8f57dea5c4bc309f9c[m
+Merge: b54d932 1ba11fb
+Author: jwi2018 <60511413+jwi2018@users.noreply.github.com>
+Date:   Sun Mar 21 04:23:39 2021 +0900
+
+    Merge branch 'master' of https://github.com/ionizn/RomanceTrain
+
+[33mcommit b54d932d436f7be59ac0bb79fb3688f00bbc9eb2[m
+Author: jwi2018 <60511413+jwi2018@users.noreply.github.com>
+Date:   Sun Mar 21 04:23:36 2021 +0900
+
+    trainsUI
+    
+    trainsUI
+
+[33mcommit 1ba11fb2edf364fb445a63d34140462dab65fa7f[m
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sun Mar 21 03:56:11 2021 +0900
+
+    Fix_UI
+
+[33mcommit 11094e435c8c7f21ffa4866a30a6587172b2d975[m
+Merge: fc735af 5106f9f
+Author: jwi2018 <60511413+jwi2018@users.noreply.github.com>
+Date:   Sun Mar 21 03:54:40 2021 +0900
+
+    Merge branch 'master' of https://github.com/ionizn/RomanceTrain
+
+[33mcommit fc735af4eb1cd35890377126c02897bea3b92861[m
+Author: jwi2018 <60511413+jwi2018@users.noreply.github.com>
+Date:   Sun Mar 21 03:54:35 2021 +0900
+
+    trains
+    
+    trains
+
+[33mcommit 5106f9f4036d0580c2b0a2cfefd909d22863b79e[m
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sun Mar 21 03:51:39 2021 +0900
+
+    Fix_UI
+
+[33mcommit b71bd35361ffb7412f2e48b60e6b2b0521c7f2eb[m
+Author: DESKTOP-BPJG4VP\ioniz <ionizn@gmail.com>
+Date:   Sun Mar 21 02:10:43 2021 +0900
+
+    fix error
+
+[33mcommit 2e15bfc88e1b65f36eb395af4ad481f9c1bd601c[m
+Author: DESKTOP-BPJG4VP\ioniz <ionizn@gmail.com>
+Date:   Sun Mar 21 02:03:28 2021 +0900
+
+    add meteor animation
+
+[33mcommit ac939aa767ccffda61dfb299136bd25177233182[m
+Author: jwi2018 <60511413+jwi2018@users.noreply.github.com>
+Date:   Sun Mar 21 01:58:43 2021 +0900
+
+    ChooseTrain
+    
+    ChooseTrain
+
+[33mcommit b5633d2e00b27e2867056d29842ac2fef45a2463[m[33m ([m[1;31mmaster/master[m[33m)[m
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sun Mar 21 00:13:33 2021 +0900
+
+    Add_TRAIN_FIN
+
+[33mcommit 3d6242a8db69870d6e35c98e0cf64beda6cba823[m
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sat Mar 20 23:03:11 2021 +0900
+
+    AddTrain
+
+[33mcommit fb21ead0adaf8afc4b1589080fd1e3e3092f5308[m
+Merge: 701c98c 2913de1
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sat Mar 20 22:32:03 2021 +0900
+
+    Merge branch 'master' of https://github.com/ionizn/RomanceTrain
+
+[33mcommit 701c98cf372ecbfcf8a34c0d3032e8a202e65281[m
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sat Mar 20 22:31:52 2021 +0900
+
+    add_train
+
+[33mcommit 2913de19b2b0f8aa730f33984cc08b2d9332ea11[m
+Merge: 8038b04 9256ad1
+Author: jwi2018 <60511413+jwi2018@users.noreply.github.com>
+Date:   Sat Mar 20 22:19:35 2021 +0900
+
+    Merge branch 'master' of https://github.com/ionizn/RomanceTrain
+
+[33mcommit 8038b04122b4b247c91509e4931eab4829974c81[m
+Author: jwi2018 <60511413+jwi2018@users.noreply.github.com>
+Date:   Sat Mar 20 22:19:18 2021 +0900
+
+    GameManagerStage
+    
+    GameManagerStage
+
+[33mcommit 9256ad191067556a0eae1c9894f671da30b5f289[m
+Author: DESKTOP-BPJG4VP\ioniz <ionizn@gmail.com>
+Date:   Sat Mar 20 21:12:59 2021 +0900
+
+    Add Turret Tip
+
+[33mcommit ea81f278fc6443ca83b805e3c379d50b2598c329[m
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sat Mar 20 20:56:40 2021 +0900
+
+    meteor_Destroy
+
+[33mcommit 474bff66bcfa84b7bbb972567d1854e8ed97d1bd[m
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sat Mar 20 18:47:53 2021 +0900
+
+    Bullet_Change
+
+[33mcommit a05803f1b5b25e381645844adbf2416af301f22e[m
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sat Mar 20 17:40:54 2021 +0900
+
+    Train
+
+[33mcommit 7d8d823eccf267219d10cc8a15e5ecec701247e3[m
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sat Mar 20 17:00:10 2021 +0900
+
+    UI
+
+[33mcommit cb2ca30c975f929af91d5239e690c0828e9fc30c[m
+Author: DESKTOP-BPJG4VP\ioniz <ionizn@gmail.com>
+Date:   Sat Mar 20 16:51:53 2021 +0900
+
+    Test
+
+[33mcommit 3cd03efe55d5071153ff9321b99c0d36d47338e9[m
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sat Mar 20 16:15:22 2021 +0900
+
+    UI
+
+[33mcommit 57bc7e587ac13814f046f1cc43f9a7fdb7015676[m
+Author: kkulbeol <chaeyh04@gmail.com>
+Date:   Sat Mar 20 16:06:55 2021 +0900
+
+    UI_add
