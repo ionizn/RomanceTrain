@@ -46,20 +46,23 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-            AddTrain(Weapon.WeaponType.NORMAL);
-        if (trains.Count >= 1)
-            if (trains[0] && Input.GetKey(KeyCode.Z))
-                trains[0].Attack();
-        if (trains.Count >= 2)
-            if (trains[1] && Input.GetKey(KeyCode.X))
-                trains[1].Attack();
-        if (trains.Count >= 3)
-            if (trains[2] && Input.GetKey(KeyCode.C))
-                trains[2].Attack();
-        if (trains.Count >= 4)
-            if (trains[3] && Input.GetKey(KeyCode.V))
-                trains[3].Attack();
+        if (trains.Count > 0)
+        {
+            //if (Input.GetKeyDown(KeyCode.A))
+              //  AddTrain(Weapon.WeaponType.NORMAL);
+            if (trains.Count >= 1)
+                if (trains[0] && Input.GetKey(KeyCode.Z))
+                    trains[0].Attack();
+            if (trains.Count >= 2)
+                if (trains[1] && Input.GetKey(KeyCode.X))
+                    trains[1].Attack();
+            if (trains.Count >= 3)
+                if (trains[2] && Input.GetKey(KeyCode.C))
+                    trains[2].Attack();
+            if (trains.Count >= 4)
+                if (trains[3] && Input.GetKey(KeyCode.V))
+                    trains[3].Attack();
+        }
     }
 
     public void AddTrain(Weapon.WeaponType type)

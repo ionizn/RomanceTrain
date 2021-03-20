@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public GameObject StartLogo;
 
     public GameObject Shelter;
-    public GameObject Upgrade;
     public GameObject ArrivePlanet;
 
     public GameObject MiddleBossPrefab;
@@ -25,6 +24,8 @@ public class GameManager : MonoBehaviour
     int DiagolonCount = 0;
     int StageCount = 0;
     int Count = 0;
+
+    public static bool StartStage = false;
 
     //enum
     PROGRESS progress = PROGRESS.START;
@@ -174,8 +175,6 @@ public class GameManager : MonoBehaviour
     bool LastBossSpawn = false;
     GameObject LastBoss;
 
-
-
     void Update()
     {
         elapsedTime += Time.deltaTime;
@@ -196,25 +195,31 @@ public class GameManager : MonoBehaviour
                 {
                     // 업그레이드 선택 대기 상태
                     //선택 하면 다음 페이즈로 이동
-                    
-                    switch(StageCount)
+                    if (StartStage == true)
                     {
-                        case 1:
-                            progress = PROGRESS.Stage1;
-                            WavePattern = EnemyPattern.Stage1Enemy;
-                            break;
-                        case 2:
-                            progress = PROGRESS.Stage2;
-                            WavePattern = EnemyPattern.Stage2Enemy;
-                            break;
-                        case 3:
-                            progress = PROGRESS.Stage3;
-                            WavePattern = EnemyPattern.Stage3Enemy;
-                            break;
-                        case 4:
-                            progress = PROGRESS.Stage4;
-                            WavePattern = EnemyPattern.Stage4Enemy;
-                            break;
+                        switch (StageCount)
+                        {
+                            case 1:
+                                progress = PROGRESS.Stage1;
+                                WavePattern = EnemyPattern.Stage1Enemy;
+                                StartStage = false;
+                                break;
+                            case 2:
+                                progress = PROGRESS.Stage2;
+                                WavePattern = EnemyPattern.Stage2Enemy;
+                                StartStage = false;
+                                break;
+                            case 3:
+                                progress = PROGRESS.Stage3;
+                                WavePattern = EnemyPattern.Stage3Enemy;
+                                StartStage = false;
+                                break;
+                            case 4:
+                                progress = PROGRESS.Stage4;
+                                WavePattern = EnemyPattern.Stage4Enemy;
+                                StartStage = false;
+                                break;
+                        }
                     }
                 }
                 break;

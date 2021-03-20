@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Shelter : MonoBehaviour
 {
-    public GameObject Upgrade;
-
+    public GameObject UI;
     private void Start()
     {
         Vector3 pos = new Vector3(34f, -7f, 0f);
@@ -27,12 +26,15 @@ public class Shelter : MonoBehaviour
         if (targetScreenPos.x + 788 < 0)
             Destroy(gameObject);
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.name == "Player")
         {
             Destroy(gameObject);
+
+            GameObject.Find("ChooseTrains").GetComponent<ChooseTrain>().AttiveUpgrade();
         }
     }
+    
 }
