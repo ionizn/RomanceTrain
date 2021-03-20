@@ -24,10 +24,17 @@ public class GameManager : MonoBehaviour
     PROGRESS progress = PROGRESS.START;
     EnemyPattern WavePattern = EnemyPattern.TestEnemy;
 
+    int lastStage = 0;
+
     enum PROGRESS
     {
+        Stage0,
+        Stage1,
+        Stage2,
+        Stage3,
+        Stage4,
         START,
-        WAVE,
+        SHELTER,
         BOSS
     }
     enum EnemyPattern
@@ -40,7 +47,7 @@ public class GameManager : MonoBehaviour
     //Function
     private void Start()
     {
-       
+
     }
 
     IEnumerator SpawnTestEnemy()
@@ -68,12 +75,12 @@ public class GameManager : MonoBehaviour
             case EnemyPattern.TestEnemy:
                 {//뱀 랜덤위치에 소환
                  //랜덤 Y값 생성
-                    //float randomX = Random.Range(-0f, 0f);
-                    //float X = 4f;
+                 //float randomX = Random.Range(-0f, 0f);
+                 //float X = 4f;
 
                     ////랜덤 X값 저장
                     //Vector3 pos = new Vector3(randomX, 16f, 0f);
-                   
+
 
                     ////뱀 오프셋
                     //Vector3 offset = new Vector3(4f, 0f, 0f);
@@ -97,48 +104,163 @@ public class GameManager : MonoBehaviour
     bool LastBossSpawn = false;
     GameObject LastBoss;
 
+
+
     void Update()
     {
         elapsedTime += Time.deltaTime;
 
         switch (progress)
         {
+
+            //게임 시작
             case PROGRESS.START:
-                if(elapsedTime >= 2)
+                if (elapsedTime >= 2)
                 {
                     Instantiate(StartLogo);
-                    progress = PROGRESS.WAVE;
+                    progress = PROGRESS.Stage0;
                     elapsedTime = 0f;
                 }
-
                 break;
 
-            case PROGRESS.WAVE:
+            case PROGRESS.SHELTER:
+                {
+                    // 업그레이드 선택 대기 상태
+                    //선택 하면 다음 페이즈로 이동
+
+                }
+                break;
+
+            case PROGRESS.Stage0:
                 TotalTime += Time.deltaTime;
 
-              
+
+
+                if (elapsedTime >= 20)
+                {
+                    elapsedTime = 0f;
+
+                }
+                break;
+
+            case PROGRESS.Stage1:
+                TotalTime += Time.deltaTime;
+
+
                 /*
                     적 생성
                  */
 
-                switch (WavePattern)
+                //switch (WavePattern)
+                //{
+                //    case EnemyPattern.TestEnemy:
+                //        if (elapsedTime >= 6f)
+                //        {
+                //            SpawnPattern(EnemyPattern.TestEnemy);
+                //            elapsedTime = 0f;
+                //        }
+
+
+                //        break;
+
+
+                //}
+
+                if (elapsedTime >= 20)
                 {
-                    case EnemyPattern.TestEnemy:
-                        if (elapsedTime >= 6f)
-                        {
-                            SpawnPattern(EnemyPattern.TestEnemy);
-                            elapsedTime = 0f;
-                        }
+                    elapsedTime = 0f;
 
-
-                        break;
-
-                  
                 }
-                
-                
                 break;
 
+            case PROGRESS.Stage2:
+                TotalTime += Time.deltaTime;
+
+
+                /*
+                    적 생성
+                 */
+
+                //switch (WavePattern)
+                //{
+                //    case EnemyPattern.TestEnemy:
+                //        if (elapsedTime >= 6f)
+                //        {
+                //            SpawnPattern(EnemyPattern.TestEnemy);
+                //            elapsedTime = 0f;
+                //        }
+
+
+                //        break;
+
+
+                //}
+
+                if (elapsedTime >= 20)
+                {
+                    elapsedTime = 0f;
+
+                }
+                break;
+
+            case PROGRESS.Stage3:
+                TotalTime += Time.deltaTime;
+
+
+                /*
+                    적 생성
+                 */
+
+                //switch (WavePattern)
+                //{
+                //    case EnemyPattern.TestEnemy:
+                //        if (elapsedTime >= 6f)
+                //        {
+                //            SpawnPattern(EnemyPattern.TestEnemy);
+                //            elapsedTime = 0f;
+                //        }
+
+
+                //        break;
+
+
+                //}
+
+                if (elapsedTime >= 20)
+                {
+                    elapsedTime = 0f;
+
+                }
+                break;
+            case PROGRESS.Stage4:
+                TotalTime += Time.deltaTime;
+
+
+                /*
+                    적 생성
+                 */
+
+                //switch (WavePattern)
+                //{
+                //    case EnemyPattern.TestEnemy:
+                //        if (elapsedTime >= 6f)
+                //        {
+                //            SpawnPattern(EnemyPattern.TestEnemy);
+                //            elapsedTime = 0f;
+                //        }
+
+
+                //        break;
+
+
+                //}
+
+                if (elapsedTime >= 20)
+                {
+                    elapsedTime = 0f;
+
+                }
+                break;
             case PROGRESS.BOSS:
 
                 break;
