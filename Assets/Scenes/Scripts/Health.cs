@@ -27,11 +27,11 @@ public class Health : MonoBehaviour
 
         if(isEnemy)
         {
-            Vector3 vec = new Vector3(Random.Range(-1f,1f) ,Random.Range(-1f, 1f) , 0f);
-            GameObject temp = ObjectPool.Instance.PopFromPool("BulletExplode");
-            temp.SetActive(true);
+            //Vector3 vec = new Vector3(Random.Range(-1f,1f) ,Random.Range(-1f, 1f) , 0f);
+            //GameObject temp = ObjectPool.Instance.PopFromPool("BulletExplode");
+            //temp.SetActive(true);
 
-            temp.transform.position = gameObject.transform.position + vec;
+            //temp.transform.position = gameObject.transform.position + vec;
 
             AL.ALUtil.Shaker.Instance.Shake();            
         }
@@ -44,6 +44,7 @@ public class Health : MonoBehaviour
                 if (GetComponent<Animator>() != null)
                 {
                     GetComponent<Animator>().SetTrigger("isDestroy");
+                    GetComponent<BoxCollider2D>().enabled = false;
                     StartCoroutine("DelayDestroy");
                 }
             }
@@ -91,7 +92,7 @@ public class Health : MonoBehaviour
     IEnumerator DelayDestroy()
     {
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         ObjectPool.Instance.PushToPool(itemName, gameObject);
     }
 }

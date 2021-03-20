@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,13 +26,15 @@ public class GameManager : MonoBehaviour
     int StageCount = 0;
     int Count = 0;
 
-    public static bool StartStage = false;
 
+    public static bool StartStage = false;
+    [SerializeField] private Slider slider;
     //enum
     PROGRESS progress = PROGRESS.START;
     EnemyPattern WavePattern = EnemyPattern.TestEnemy;
 
     int lastStage = 0;
+    bool started = false;
 
     enum PROGRESS
     {
@@ -124,6 +127,7 @@ public class GameManager : MonoBehaviour
     }
 
 
+
     void SpawnPattern(EnemyPattern pattern)
     {
         switch (pattern)
@@ -178,7 +182,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-
+        if(progress != PROGRESS.START && progress != PROGRESS.SHELTER)
+        slider.value += Time.deltaTime; 
         switch (progress)
         {
             //게임 시작
@@ -227,17 +232,33 @@ public class GameManager : MonoBehaviour
             case PROGRESS.Stage0:
                 TotalTime += Time.deltaTime;
 
+                if (started == false)
+                {
+                    slider.value = 0;
+                    slider.maxValue = 2;
+                    started = true;
+                }
+
                 if (elapsedTime >= 2)
                 {
                     Instantiate(Shelter);
                     progress = PROGRESS.SHELTER;
                     StageCount = 1;
                     elapsedTime = 0f;
+                    started = false;
+
                 }
                 break;
 
             case PROGRESS.Stage1:
                 TotalTime += Time.deltaTime;
+
+                if(started == false)
+                {
+                    slider.value = 0;
+                    slider.maxValue = 100;
+                    started = true;
+                }
 
                 switch (WavePattern)
                 {
@@ -260,11 +281,20 @@ public class GameManager : MonoBehaviour
                     StageCount = 2;
                     Count = 0;
                     elapsedTime = 0f;
+                    started = false;
+
                 }
                 break;
 
             case PROGRESS.Stage2:
                 TotalTime += Time.deltaTime;
+
+                if (started == false)
+                {
+                    slider.value = 0;
+                    slider.maxValue = 100;
+                    started = true;
+                }
 
                 // 적 생성
                 switch (WavePattern)
@@ -276,6 +306,7 @@ public class GameManager : MonoBehaviour
                             SpawnPattern(EnemyPattern.Stage2Enemy);
                             elapsedTime = 0f;
                             Count++;
+
                         }
                         break;
                 }
@@ -288,11 +319,20 @@ public class GameManager : MonoBehaviour
                     StageCount = 3;
                     Count = 0;
                     elapsedTime = 0f;
+
+                    started = false;
                 }
                 break;
 
             case PROGRESS.Stage3:
                 TotalTime += Time.deltaTime;
+
+                if (started == false)
+                {
+                    slider.value = 0;
+                    slider.maxValue = 180;
+                    started = true;
+                }
 
                 // 적 생성
                 switch (WavePattern)
@@ -304,6 +344,7 @@ public class GameManager : MonoBehaviour
                             SpawnPattern(EnemyPattern.Stage3Enemy);
                             elapsedTime = 0f;
                             Count++;
+
                         }
                         break;
                 }
@@ -316,11 +357,21 @@ public class GameManager : MonoBehaviour
                     StageCount = 4;
                     Count = 0;
                     elapsedTime = 0f;
+                    started = false;
+
                 }
                 break;
 
             case PROGRESS.Stage4:
                 TotalTime += Time.deltaTime;
+
+        
+                if (started == false)
+                {
+                    slider.value = 0;
+                    slider.maxValue = 180;
+                    started = true;
+                }
 
                 // 적 생성
                 switch (WavePattern)
