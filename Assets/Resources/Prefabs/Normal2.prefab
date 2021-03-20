@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &156178232485194193
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2043415877941690312}
+  m_Layer: 0
+  m_Name: Tip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2043415877941690312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156178232485194193}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.327, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5402471634550621179}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5402471632579187042
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +41,7 @@ GameObject:
   - component: {fileID: 5402471632579187043}
   - component: {fileID: 5402471632579187036}
   m_Layer: 0
-  m_Name: TrainV
+  m_Name: Normal2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,6 +225,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5402471633552529945}
+  - {fileID: 2043415877941690312}
   m_Father: {fileID: 5402471632579187043}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -272,9 +303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c922476f7046e574694fbe365efde057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotPrefab: {fileID: 8709014754558970483, guid: 4f1c0f2a02c1e6945a998cc0e0b530b5,
-    type: 3}
+  weapon_type: 0
+  cool_time: 3
   ShootingRate: 10
+  LazerPrefab: {fileID: 0}
 --- !u!114 &5402471634550621172
 MonoBehaviour:
   m_ObjectHideFlags: 0

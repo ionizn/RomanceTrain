@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5836082226868025650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5059392370839387602}
+  m_Layer: 0
+  m_Name: Tip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5059392370839387602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836082226868025650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.357, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8153934689799862558}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8153934689799862559
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,6 +62,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8153934690981527724}
+  - {fileID: 5059392370839387602}
   m_Father: {fileID: 8153934690738824099}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -109,9 +140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c922476f7046e574694fbe365efde057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotPrefab: {fileID: 8709014754558970483, guid: 4f1c0f2a02c1e6945a998cc0e0b530b5,
-    type: 3}
+  weapon_type: 0
+  cool_time: 0
   ShootingRate: 30
+  LazerPrefab: {fileID: 8509598026637719703, guid: 3c2e7b0b4d09fc74eb20e5b0e51ba26d,
+    type: 3}
 --- !u!114 &8153934689799862553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +174,7 @@ GameObject:
   - component: {fileID: 8153934690738824099}
   - component: {fileID: 8153934690738824098}
   m_Layer: 0
-  m_Name: TrainX
+  m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

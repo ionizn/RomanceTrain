@@ -16,9 +16,12 @@ public class Weapon : MonoBehaviour
     public float ShootingRate;
     string bullet_name;
     Vector3 vec;
+    public GameObject LazerPrefab;
+    private GameObject Laser;
 
     public void Attack()
     {
+        Debug.Log("ATTACK");
         if (CanAttack())
         {
             switch (weapon_type)
@@ -71,6 +74,13 @@ public class Weapon : MonoBehaviour
                     break;
                 case WeaponType.LASER:
                     {
+                        vec = new Vector3(-5f, -0.5f, 0f);
+                        Laser = Instantiate(LazerPrefab);
+                        Laser.transform.parent = transform.parent;
+
+                        Laser.transform.rotation = transform.rotation;
+                        Laser.transform.position = transform.position;
+
                         cool_time = ShootingRate;
                     }
                     break;

@@ -10,16 +10,13 @@ public class Player : MonoBehaviour
     public Vector2 MoveMent;
     private Rigidbody2D myRigid;
 
-    public GameObject LazerPrefab;
-    private GameObject Laser;
-
     public GameObject BombPrefab;
 
     private new AudioSource audio;
     public AudioClip sound;
 
     public List<Transform> train_poss;
-    List<Weapon> trains;
+    List<Weapon> trains = new List<Weapon>();
 
     void OnDestroy()
     {
@@ -29,17 +26,17 @@ public class Player : MonoBehaviour
             GameOverPanel.GetComponent<CanvasGroup>().interactable = true;
             GameObject g = GameObject.Find("UI");
             g.gameObject.GetComponent<CanvasGroup>().alpha = 0;
-                
         }
     }
     void Start()
     {
-
         myRigid = GetComponent<Rigidbody2D>();
         m_Animator = gameObject.GetComponent<Animator>();
         audio = gameObject.AddComponent<AudioSource>();
         audio.clip = sound;
         audio.loop = false;
+        GameObject.Find("Earth").transform.position = train_poss[0].position;
+        GameObject.Find("TrainHead").transform.position = train_poss[1].position;
     }
 
     ~Player()
@@ -49,17 +46,19 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.A))
+            AddTrain(Weapon.WeaponType.NORMAL);
         if (trains.Count >= 1)
-            if (trains[0] && Input.GetKeyDown(KeyCode.Z))
+            if (trains[0] && Input.GetKey(KeyCode.Z))
                 trains[0].Attack();
         if (trains.Count >= 2)
-            if (trains[1] && Input.GetKeyDown(KeyCode.X))
+            if (trains[1] && Input.GetKey(KeyCode.X))
                 trains[1].Attack();
         if (trains.Count >= 3)
-            if (trains[2] && Input.GetKeyDown(KeyCode.C))
+            if (trains[2] && Input.GetKey(KeyCode.C))
                 trains[2].Attack();
         if (trains.Count >= 4)
-            if (trains[3] && Input.GetKeyDown(KeyCode.V))
+            if (trains[3] && Input.GetKey(KeyCode.V))
                 trains[3].Attack();
     }
 
@@ -81,12 +80,18 @@ public class Player : MonoBehaviour
                 temp = new GameObject();
                 break;
         }
-        for (int i = 0; i < trains.Count; i++)
+        temp.transform.parent = GameObject.Find("Player").transform;
+        temp.transform.localScale = new Vector3(9, 9, 9);
+        int i;
+        for (i = 0; i < trains.Count; i++)
         {
-            trains[i].transform.position = train_poss[i + 1].position;
+            Debug.Log($"{i} : trains[i] : {trains[i]} : size : {trains.Count}");
+            trains[i].transform.parent.position = train_poss[i + 1].position;
         }
+        GameObject.Find("Earth").transform.position = train_poss[i + 1].position;
+        GameObject.Find("TrainHead").transform.position = train_poss[i + 2].position;
         temp.transform.position = train_poss[0].position;
-        trains.Add(temp.GetComponent<Weapon>());
+        trains.Add(temp.GetComponentInChildren<Weapon>());
     }
 
     private void FixedUpdate()
