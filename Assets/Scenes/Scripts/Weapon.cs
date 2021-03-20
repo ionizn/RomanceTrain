@@ -18,9 +18,14 @@ public class Weapon : MonoBehaviour
     Vector3 vec;
     public GameObject LazerPrefab;
     private GameObject Laser;
+    Animator animator;
 
-    public static int weapon_type_Int;
+    public static int weapon_type_Int { get; set; }
 
+    private void Start()
+    {
+        animator = transform.Find("New Sprite").GetComponent<Animator>();
+    }
     public void Attack()
     {
         if(weapon_type_Int == 0)
@@ -39,6 +44,7 @@ public class Weapon : MonoBehaviour
         if (CanAttack())
         {
             Debug.Log(weapon_type);
+            animator.SetTrigger("Attack");
             switch (weapon_type)
             {
                 case WeaponType.NORMAL:
