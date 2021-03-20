@@ -41,8 +41,11 @@ public class Health : MonoBehaviour
 
             if (isEnemy)
             {
-                GetComponent<Animator>().SetTrigger("isDestroy") ;
-                StartCoroutine("DelayDestroy");
+                if (GetComponent<Animator>() != null)
+                {
+                    GetComponent<Animator>().SetTrigger("isDestroy");
+                    StartCoroutine("DelayDestroy");
+                }
             }
 
 
