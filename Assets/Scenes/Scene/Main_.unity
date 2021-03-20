@@ -2911,6 +2911,7 @@ MonoBehaviour:
   player: {fileID: 70347045}
   StartLogo: {fileID: 8262837312090773550, guid: 7836fafdad062a84f90101a260ea4ecb,
     type: 3}
+  Shelter: {fileID: 440216088246966213, guid: 24d3b0b3faf51f04da1ff6835cf74bdd, type: 3}
   MiddleBossPrefab: {fileID: 0}
   LastBossPrefab: {fileID: 0}
   VicotryPanel: {fileID: 1864835680}
