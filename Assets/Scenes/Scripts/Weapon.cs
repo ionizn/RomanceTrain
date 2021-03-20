@@ -38,12 +38,10 @@ public class Weapon : MonoBehaviour
 
         if (CanAttack())
         {
-            Debug.Log(weapon_type);
             switch (weapon_type)
             {
                 case WeaponType.NORMAL:
                     {
-                        Debug.Log("NORMAL");
                         if (gameObject.GetComponent<Health>().isEnemy == false)
                             bullet_name = "Bullet";
                         else
@@ -57,6 +55,7 @@ public class Weapon : MonoBehaviour
                             bullet.gameObject.transform.position = transform.Find("Tip").transform.position;
                             bullet.gameObject.GetComponent<Shot>().ShotAngle(transform.localRotation.z * 2.15f);
                             bullet.gameObject.SetActive(true);
+
                             cool_time = ShootingRate;
                         }
                         else
@@ -73,7 +72,6 @@ public class Weapon : MonoBehaviour
                     break;
                 case WeaponType.SHOTGUN:
                     {
-                        Debug.Log("SHOTGUN");
                         vec = new Vector3(5f, -0.5f, 0f);
                         bullet_name = "Shotgun";
 
@@ -85,13 +83,14 @@ public class Weapon : MonoBehaviour
                             bullet.gameObject.GetComponent<Shot>().ShotAngle(transform.localRotation.z * 1.6f + r);
                             bullet.gameObject.transform.position = transform.Find("Tip").transform.position;
                             bullet.gameObject.SetActive(true);
+
+                            Debug.Log(transform.localRotation.z * 1.6f + r);
                         }
                         cool_time = ShootingRate;
                     }
                     break;
                 case WeaponType.LASER:
                     {
-                        Debug.Log("LASER");
                         vec = new Vector3(-5f, -0.5f, 0f);
                         Laser = Instantiate(LazerPrefab);
                         Laser.transform.parent = transform.parent;

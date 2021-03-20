@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
             Vector3 vec = new Vector3(Random.Range(-1f,1f) ,Random.Range(-1f, 1f) , 0f);
             GameObject temp = ObjectPool.Instance.PopFromPool("BulletExplode");
             temp.SetActive(true);
-            
+
             temp.transform.position = gameObject.transform.position + vec;
 
             AL.ALUtil.Shaker.Instance.Shake();            

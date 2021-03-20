@@ -13,8 +13,8 @@ public class ChooseTrain : MonoBehaviour
 
     public void OnClickCase1()
     {
-        int ran = Random.Range(9, 10);
-
+        int ran = Random.Range(1, 10);
+        
         Debug.Log(ran);
 
         if(1 <= ran  && ran <= 4)

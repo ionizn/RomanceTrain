@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Shelter : MonoBehaviour
 {
-    public GameObject UI;
     private void Start()
     {
         Vector3 pos = new Vector3(34f, -9f, 0f);
