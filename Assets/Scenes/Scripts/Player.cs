@@ -15,12 +15,11 @@ public class Player : MonoBehaviour
 
     public GameObject BombPrefab;
 
-    private AudioSource audio;
+    private new AudioSource audio;
     public AudioClip sound;
-    public Weapon turret_z;
-    public Weapon turret_x;
-    public Weapon turret_c;
-    public Weapon turret_v;
+
+    public List<Transform> train_poss;
+    List<Weapon> trains;
 
     void OnDestroy()
     {
@@ -33,10 +32,6 @@ public class Player : MonoBehaviour
                 
         }
     }
-
-
-
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -54,80 +49,40 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (trains.Count >= 1)
+            if (!trains[0] && Input.GetKeyDown(KeyCode.Z))
+                trains[0].Attack();
+        if (trains.Count >= 2)
+            if (!trains[1] && Input.GetKeyDown(KeyCode.X))
+                trains[1].Attack();
+        if (trains.Count >= 3)
+            if (!trains[2] && Input.GetKeyDown(KeyCode.C))
+                trains[2].Attack();
+        if (trains.Count >= 4)
+            if (!trains[3] && Input.GetKeyDown(KeyCode.V))
+                trains[3].Attack();
+    }
 
-        //bool shoot = Input.GetButton("Fire1");
-
-        //if (shoot)
-        //{
-        //    //Weapon tempWeapon = GetComponent<Weapon>();
-        //    if (turret_1 != null)
-        //    {
-        //        turret_1.Attack(false);
-        //    }
-        //}
-
-        if (Input.GetKey(KeyCode.Z))
+    public void AddTrain(Weapon.WeaponType type)
+    {
+        GameObject temp;
+        switch (type)
         {
-            //Weapon tempWeapon = GetComponent<Weapon>();
-            if (turret_z != null)
-            {
-                turret_z.Shotgun();
-            }
-
+            case Weapon.WeaponType.NORMAL:
+                temp = Instantiate(Resources.Load("Prefabs/Normal") as GameObject);
+                break;
+            case Weapon.WeaponType.SHOTGUN:
+                temp = Instantiate(Resources.Load("Prefabs/Shotgun") as GameObject);
+                break;
+            case Weapon.WeaponType.LASER:
+                temp = Instantiate(Resources.Load("Prefabs/Laser") as GameObject);
+                break;
+            default:
+                temp = new GameObject();
+                break;
         }
-        if (Input.GetKey(KeyCode.X))
-        {
-            if (turret_x != null)
-            {
-                //laser cooltime
-                if( turret_x.Laser() )
-                {
-                    Vector3 vec = new Vector3(-5f, -0.5f, 0f);
-                    //turret_x.Attack(false);
-                    Laser = Instantiate(LazerPrefab);
-                    Laser.transform.parent = turret_x.transform.parent;
-
-                    Laser.transform.rotation = turret_x.transform.rotation;
-                    Laser.transform.position = turret_x.transform.position;
-
-                }
-                //                audio.PlayOneShot(sound, 1);
-            }
-        }
-
-        if (Input.GetKey(KeyCode.C))
-        {
-            if (turret_c != null)
-            {
-                turret_c.Attack(false);
-            }
-        }
-        if (Input.GetKey(KeyCode.V))
-        {
-            if (turret_v != null)
-            {
-                turret_v.Attack(false);
-            }
-        }
-
-        //if (Laser != null)
-        //{
-        //    Vector3 vec = new Vector3(30f, -0.5f, 0f);
-        //    Laser.gameObject.transform.position = gameObject.transform.position + vec;
-        //}
-
-        //float dist = (transform.position - Camera.main.transform.position).z;
-
-        //float leftborder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).x;
-        //float rightborder = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, dist)).x;
-        //float topborder = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, dist)).y;
-        //float bottomborder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).y;
-
-        //transform.position = new Vector3(
-        //    Mathf.Clamp(transform.position.x, leftborder, rightborder)
-        //    , Mathf.Clamp(transform.position.y, bottomborder, topborder)
-        //    , transform.position.z
-        //     );
+        temp.transform.position = train_poss[trains.Count].position;
+        trains.Add(temp.GetComponent<Weapon>());
     }
 
     private void FixedUpdate()
