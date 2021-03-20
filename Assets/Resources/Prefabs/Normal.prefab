@@ -222,8 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon_type: 0
-  cool_time: 3
-  ShootingRate: 10
+  cool_time: 0
+  ShootingRate: 0.5
   LazerPrefab: {fileID: 0}
 --- !u!114 &8320138897364515610
 MonoBehaviour:

@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
     {
         NORMAL,
         SHOTGUN,
-        LASER,
+        LASER
     }
 
     public WeaponType weapon_type;
@@ -19,15 +19,31 @@ public class Weapon : MonoBehaviour
     public GameObject LazerPrefab;
     private GameObject Laser;
 
+    public static int weapon_type_Int;
+
     public void Attack()
     {
-        Debug.Log("ATTACK");
+        if(weapon_type_Int == 0)
+        {
+            weapon_type = WeaponType.NORMAL;
+        }
+        else if (weapon_type_Int == 1)
+        {
+            weapon_type = WeaponType.SHOTGUN;
+        }
+        else  if (weapon_type_Int == 2)
+        {
+            weapon_type = WeaponType.LASER;
+        }
+
         if (CanAttack())
         {
+            Debug.Log(weapon_type);
             switch (weapon_type)
             {
                 case WeaponType.NORMAL:
                     {
+                        Debug.Log("NORMAL");
                         if (gameObject.GetComponent<Health>().isEnemy == false)
                             bullet_name = "Bullet";
                         else
@@ -57,6 +73,7 @@ public class Weapon : MonoBehaviour
                     break;
                 case WeaponType.SHOTGUN:
                     {
+                        Debug.Log("SHOTGUN");
                         vec = new Vector3(5f, -0.5f, 0f);
                         bullet_name = "Shotgun";
 
@@ -74,6 +91,7 @@ public class Weapon : MonoBehaviour
                     break;
                 case WeaponType.LASER:
                     {
+                        Debug.Log("LASER");
                         vec = new Vector3(-5f, -0.5f, 0f);
                         Laser = Instantiate(LazerPrefab);
                         Laser.transform.parent = transform.parent;

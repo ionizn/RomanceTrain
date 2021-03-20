@@ -68,6 +68,7 @@ public class Player : MonoBehaviour
     public void AddTrain(Weapon.WeaponType type)
     {
         GameObject temp;
+
         switch (type)
         {
             case Weapon.WeaponType.NORMAL:
