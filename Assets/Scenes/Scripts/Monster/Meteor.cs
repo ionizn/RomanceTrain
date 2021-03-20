@@ -12,12 +12,12 @@ public class Meteor : MonoBehaviour
     public void Init(Vector3 pos)
     {
         transform.position = pos;
+        GetComponent<Animator>().ResetTrigger("isDestroy");
         gameObject.SetActive(true);
         elapsedTime = 0f;
         deltaY = 0f;
         time = 0f;
         Up = false;
-
         randomRate = Random.Range(1f, 10f);
         //if (pos.y < 0.3)
         //{

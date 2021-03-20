@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
         audio = gameObject.AddComponent<AudioSource>();
         audio.clip = sound;
         audio.loop = false;
+
     }
 
     public void Damage(int value)
@@ -37,20 +38,29 @@ public class Health : MonoBehaviour
 
         if (hp <= 0)
         {
-            if (MemoryDelete == false)
-            {
-                ObjectPool.Instance.PushToPool(itemName, gameObject);
 
-                ScoreSystem.score += 1;
-                GameObject p = GameObject.Find("Player");
-                //audio.PlayOneShot(sound, 1);
-            }
-            else
+            if (isEnemy)
             {
-                ScoreSystem.score += 1;
-                GameObject p = GameObject.Find("Player");
-                Destroy(gameObject);
+                GetComponent<Animator>().SetTrigger("isDestroy") ;
+                StartCoroutine("DelayDestroy");
             }
+
+
+            else
+                if (MemoryDelete == false)
+                {
+                    ObjectPool.Instance.PushToPool(itemName, gameObject);
+
+                    ScoreSystem.score += 1;
+                    GameObject p = GameObject.Find("Player");
+                    //audio.PlayOneShot(sound, 1);
+                }
+                else
+                {
+                    ScoreSystem.score += 1;
+                    GameObject p = GameObject.Find("Player");
+                    Destroy(gameObject);
+                }
         }
     }
 
@@ -73,5 +83,12 @@ public class Health : MonoBehaviour
         {
             Damage(1);
         }
+    }
+
+    IEnumerator DelayDestroy()
+    {
+
+        yield return new WaitForSeconds(1f);
+        ObjectPool.Instance.PushToPool(itemName, gameObject);
     }
 }
