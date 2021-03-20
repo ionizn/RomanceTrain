@@ -50,16 +50,16 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (trains.Count >= 1)
-            if (!trains[0] && Input.GetKeyDown(KeyCode.Z))
+            if (trains[0] && Input.GetKeyDown(KeyCode.Z))
                 trains[0].Attack();
         if (trains.Count >= 2)
-            if (!trains[1] && Input.GetKeyDown(KeyCode.X))
+            if (trains[1] && Input.GetKeyDown(KeyCode.X))
                 trains[1].Attack();
         if (trains.Count >= 3)
-            if (!trains[2] && Input.GetKeyDown(KeyCode.C))
+            if (trains[2] && Input.GetKeyDown(KeyCode.C))
                 trains[2].Attack();
         if (trains.Count >= 4)
-            if (!trains[3] && Input.GetKeyDown(KeyCode.V))
+            if (trains[3] && Input.GetKeyDown(KeyCode.V))
                 trains[3].Attack();
     }
 
@@ -81,7 +81,11 @@ public class Player : MonoBehaviour
                 temp = new GameObject();
                 break;
         }
-        temp.transform.position = train_poss[trains.Count].position;
+        for (int i = 0; i < trains.Count; i++)
+        {
+            trains[i].transform.position = train_poss[i + 1].position;
+        }
+        temp.transform.position = train_poss[0].position;
         trains.Add(temp.GetComponent<Weapon>());
     }
 

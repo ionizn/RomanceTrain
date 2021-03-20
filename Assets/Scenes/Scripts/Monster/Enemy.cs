@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
         {
             if (myWeapons != null && myWeapons.CanAttack())
             {
-                myWeapons.Attack(true);
+                myWeapons.Attack();
             }
 
             if (render.IsVisibleFrom(Camera.main) == false)
