@@ -60,7 +60,7 @@ public class Weapon : MonoBehaviour
                 r = Random.Range(0, 100) * 0.01f;
                 GameObject bullet = ObjectPool.Instance.PopFromPool(bulletName);
                 bullet.gameObject.GetComponent<Shot>().ShotAngle(transform.localRotation.z * 2.7f + r);
-                bullet.gameObject.transform.position = transform.position;
+                bullet.gameObject.transform.position = transform.Find("Tip").transform.position;
                 bullet.gameObject.SetActive(true);
             }
             CoolTime = ShootingRate;
@@ -83,7 +83,7 @@ public class Weapon : MonoBehaviour
             //적이 아니면
             if (gameObject.GetComponent<Health>().isEnemy == false)
             {
-                Vector3 vec = new Vector3(5f, -0.5f, 0f);
+                Vector3 vec = new Vector3(0.5f, -0.5f, 0f);
 
                 //총알 생성
                 GameObject bullet = ObjectPool.Instance.PopFromPool(bulletName);
@@ -92,7 +92,7 @@ public class Weapon : MonoBehaviour
                 //추적 총알 취소
                 bullet.gameObject.GetComponent<Shot>().SetShotToPlayer(false);
                 //bullet.gameObject.transform.parent = transform;
-                bullet.gameObject.transform.position = transform.position;
+                bullet.gameObject.transform.position = transform.Find("Tip").transform.position;
                 
                 bullet.gameObject.GetComponent<Shot>().ShotAngle(transform.localRotation.z * 2.7f);
                 
