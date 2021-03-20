@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public GameObject MiddleBossPrefab;
     public GameObject LastBossPrefab;
 
+    AudioSource audioSource;
+
     public Scrolling[] scrolls;
     float elapsedTime = 0f;
     float TotalTime = 0f;
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         used = Enumerable.Repeat<bool>(false, 5).ToArray<bool>();
     }
 
@@ -154,6 +157,7 @@ public class GameManager : MonoBehaviour
     {
         switch (pattern)
         {
+            
             case EnemyPattern.Stage1Enemy:
                 {
                     if (TestEnemycount >= 21)
@@ -227,7 +231,7 @@ public class GameManager : MonoBehaviour
                     {
 
                         ScrollStart();
-
+                        audioSource.Play();
                         switch (StageCount)
                         {
 

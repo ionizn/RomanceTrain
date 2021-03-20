@@ -12,10 +12,11 @@ public class Health : MonoBehaviour
 
     private AudioSource audio;
     public AudioClip sound;
-
+    AudioSource audioSource;
     private void Start()
     {
         audio = gameObject.AddComponent<AudioSource>();
+        audioSource = GameObject.Find("Meteor").GetComponent<AudioSource>();
         audio.clip = sound;
         audio.loop = false;
 
@@ -41,6 +42,7 @@ public class Health : MonoBehaviour
 
             if (isEnemy)
             {
+                audioSource.Play();
                 if (GetComponent<Animator>() != null)
                 {
                     GetComponent<Animator>().SetTrigger("isDestroy");

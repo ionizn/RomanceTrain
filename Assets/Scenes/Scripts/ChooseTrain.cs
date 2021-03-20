@@ -6,6 +6,12 @@ public class ChooseTrain : MonoBehaviour
 {
     public GameObject UpGrade;
 
+    AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void AttiveUpgrade()
     {
         UpGrade.SetActive(true);
@@ -14,8 +20,7 @@ public class ChooseTrain : MonoBehaviour
     public void OnClickCase1()
     {
         int ran = Random.Range(1, 10);
-        
-        Debug.Log(ran);
+       
 
         if(1 <= ran  && ran <= 4)
         {
@@ -32,6 +37,9 @@ public class ChooseTrain : MonoBehaviour
             GameObject.Find("Player").GetComponent<Player>().AddTrain(Weapon.WeaponType.LASER);
             Weapon.weapon_type_Int = 2;
         }
+
+
+        audioSource.Play();
 
         GameManager.StartStage = true;
 
@@ -57,6 +65,8 @@ public class ChooseTrain : MonoBehaviour
             GameObject.Find("Player").GetComponent<Player>().AddTrain(Weapon.WeaponType.LASER);
             Weapon.weapon_type_Int =2;
         }
+
+        audioSource.Play();
 
         GameManager.StartStage = true;
 
