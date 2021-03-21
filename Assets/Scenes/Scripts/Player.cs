@@ -54,16 +54,16 @@ public class Player : MonoBehaviour
             //if (Input.GetKeyDown(KeyCode.A))
             //    AddTrain(Weapon.WeaponType.NORMAL);
             if (trains.Count >= 1)
-                if (trains[0] && Input.GetKey(KeyCode.Z))
+                if (trains[0] && Input.GetKey(KeyCode.V))
                     trains[0].Attack();
             if (trains.Count >= 2)
-                if (trains[1] && Input.GetKey(KeyCode.X))
+                if (trains[1] && Input.GetKey(KeyCode.C))
                     trains[1].Attack();
             if (trains.Count >= 3)
-                if (trains[2] && Input.GetKey(KeyCode.C))
+                if (trains[2] && Input.GetKey(KeyCode.X))
                     trains[2].Attack();
             if (trains.Count >= 4)
-                if (trains[3] && Input.GetKey(KeyCode.V))
+                if (trains[3] && Input.GetKey(KeyCode.Z))
                     trains[3].Attack();
         }
     }
