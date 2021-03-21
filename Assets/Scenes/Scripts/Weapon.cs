@@ -48,12 +48,13 @@ public class Weapon : MonoBehaviour
 
         if (CanAttack())
         {
-            animator.SetTrigger("Attack");
             Debug.Log(weapon_type);
             switch (weapon_type)
             {
                 case WeaponType.NORMAL:
                     {
+                        animator.SetTrigger("Attack");
+
                         audioSource.Play();
                         if (gameObject.GetComponent<Health>().isEnemy == false)
                             bullet_name = "Bullet";
@@ -85,6 +86,8 @@ public class Weapon : MonoBehaviour
                     break;
                 case WeaponType.SHOTGUN:
                     {
+                        animator.SetTrigger("Attack");
+
                         audioSource.Play();
                         vec = new Vector3(5f, -0.5f, 0f);
                         bullet_name = "Shotgun";
