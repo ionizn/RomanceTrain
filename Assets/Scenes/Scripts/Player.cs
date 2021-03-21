@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +20,11 @@ public class Player : MonoBehaviour
     public List<Transform> train_poss;
     List<Weapon> trains = new List<Weapon>();
     GameObject TrainHead;
+
+    List<string> names = new List<string>
+    {
+        "btn_v","btn_c","btn_x","btn_z",
+    };
 
     void OnDestroy()
     {
@@ -92,6 +98,11 @@ public class Player : MonoBehaviour
                 temp = new GameObject();
                 break;
         }
+
+        temp.GetComponentInChildren<Weapon>().sr.sprite = Resources.Load<Sprite>($"Btn_UI/{names[trains.Count]}");
+        //temp.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Btn_UI/{names[trains.Count]}");
+        //temp.transform.Find("Key").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>($"Btn_UI/{names[trains.Count]}");
+
         temp.transform.parent = GameObject.Find("Player").transform;
         temp.transform.localScale = new Vector3(11, 11, 11);
         int i;
