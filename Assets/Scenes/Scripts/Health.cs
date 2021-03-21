@@ -80,19 +80,25 @@ public class Health : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         Shot tempshot = collision.GetComponent<Shot>();
-        if(tempshot != null)
+        if (tempshot != null)
         {
-            if(gameObject.name != "Player")
+            if (tempshot.isEnemyShot != isEnemy)
             {
                 Damage(tempshot.Damage);
                 tempshot.PushPool();
             }
         }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(gameObject.tag != collision.tag && gameObject.name != "Player")
+        if(gameObject.tag != collision.tag && !gameObject.name.Equals("Player"))
+        {
+            Damage(1);
+        }
+
+        if (collision.gameObject.name.Equals("Meteor") && gameObject.name.Equals("Player"))
         {
             Damage(1);
         }

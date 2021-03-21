@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
         {
             Health health = gameObject.GetComponent<Health>();
             if(health != null)
-                health.Damage(10);
+                health.Damage(25);
         }
 
     }

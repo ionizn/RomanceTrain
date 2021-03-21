@@ -503,7 +503,7 @@ PrefabInstance:
     - target: {fileID: 7919080797584589050, guid: 43b98bf829be8f74293591d399a6e2f3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7919080797584589050, guid: 43b98bf829be8f74293591d399a6e2f3,
         type: 3}
@@ -518,12 +518,17 @@ PrefabInstance:
     - target: {fileID: 7919080797584589050, guid: 43b98bf829be8f74293591d399a6e2f3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
+      value: MoveScene
       objectReference: {fileID: 0}
     - target: {fileID: 7919080797584589050, guid: 43b98bf829be8f74293591d399a6e2f3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7919080797584589050, guid: 43b98bf829be8f74293591d399a6e2f3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Intro
       objectReference: {fileID: 0}
     - target: {fileID: 7919080797637981436, guid: 43b98bf829be8f74293591d399a6e2f3,
         type: 3}
