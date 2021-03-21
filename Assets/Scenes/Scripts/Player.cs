@@ -51,8 +51,8 @@ public class Player : MonoBehaviour
     {
         if (trains.Count > 0)
         {
-            if (Input.GetKeyDown(KeyCode.A))
-                AddTrain(Weapon.WeaponType.NORMAL);
+            //if (Input.GetKeyDown(KeyCode.A))
+            //    AddTrain(Weapon.WeaponType.NORMAL);
             if (trains.Count >= 1)
                 if (trains[0] && Input.GetKey(KeyCode.Z))
                     trains[0].Attack();
