@@ -42,7 +42,7 @@ public class ChooseTrain : MonoBehaviour
         audioSource.Play();
 
         GameManager.StartStage = true;
-
+        GameObject.Find("Player").GetComponent<Health>().hp = 10;
         UpGrade.SetActive(false);
     }
 
@@ -69,6 +69,7 @@ public class ChooseTrain : MonoBehaviour
         audioSource.Play();
 
         GameManager.StartStage = true;
+        GameObject.Find("Player").GetComponent<Health>().hp = 10;
 
         UpGrade.SetActive(false);
     }

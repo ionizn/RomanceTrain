@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -50,6 +51,12 @@ public class Health : MonoBehaviour
                     StartCoroutine("DelayDestroy");
                 }
             }
+            if(gameObject.name.Equals("Player"))
+            {
+                //게임 오버
+                StartCoroutine("GameOver");
+
+            }
 
 
             else
@@ -75,7 +82,7 @@ public class Health : MonoBehaviour
         Shot tempshot = collision.GetComponent<Shot>();
         if(tempshot != null)
         {
-            if(tempshot.isEnemyShot != isEnemy)
+            if(gameObject.name != "Player")
             {
                 Damage(tempshot.Damage);
                 tempshot.PushPool();
@@ -85,7 +92,7 @@ public class Health : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(gameObject.tag != collision.tag)
+        if(gameObject.tag != collision.tag && gameObject.name != "Player")
         {
             Damage(1);
         }
@@ -96,5 +103,12 @@ public class Health : MonoBehaviour
 
         yield return new WaitForSeconds(0.4f);
         ObjectPool.Instance.PushToPool(itemName, gameObject);
+    }
+
+    IEnumerator GameOver()
+    {
+        GameObject.Find("FadeController").GetComponent<FadeController>().FadeIn(2.0f);
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("GameOver");
     }
 }

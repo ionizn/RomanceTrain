@@ -265,13 +265,13 @@ public class GameManager : MonoBehaviour
 
                 if (nextPhaseStarted == false)
                 {
-                    playerHealth.hp = 10;
+                   // playerHealth.hp = 10;
                     slider.value = 0;
-                    slider.maxValue = 2;
+                    slider.maxValue = 20;
                     nextPhaseStarted = true;
                 }
 
-                if (elapsedTime >= 2)
+                if (elapsedTime >= 20)
                 {
                     //쉘터 선택
                     while(true)
@@ -298,7 +298,7 @@ public class GameManager : MonoBehaviour
 
                 if(nextPhaseStarted == false)
                 {
-                    playerHealth.hp = 10;
+                   // playerHealth.hp = 10;
                     slider.value = 0;
                     slider.maxValue = 100;
                     nextPhaseStarted = true;
@@ -345,7 +345,7 @@ public class GameManager : MonoBehaviour
 
                 if (nextPhaseStarted == false)
                 {
-                    playerHealth.hp = 10;
+                   // playerHealth.hp = 10;
                     slider.value = 0;
                     slider.maxValue = 100;
                     nextPhaseStarted = true;
@@ -394,7 +394,7 @@ public class GameManager : MonoBehaviour
 
                 if (nextPhaseStarted == false)
                 {
-                    playerHealth.hp = 10;
+                   // playerHealth.hp = 10;
                     slider.value = 0;
                     slider.maxValue = 180;
                     nextPhaseStarted = true;
@@ -434,7 +434,7 @@ public class GameManager : MonoBehaviour
         
                 if (nextPhaseStarted == false)
                 {
-                    playerHealth.hp = 10;
+                   // playerHealth.hp = 10;
                     slider.value = 0;
                     slider.maxValue = 180;
                     nextPhaseStarted = true;
