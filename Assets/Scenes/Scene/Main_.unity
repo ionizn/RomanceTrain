@@ -2243,6 +2243,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030177957}
   m_CullTransparentMesh: 0
+--- !u!114 &1042534492 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3886671426542323628, guid: 433910c4b4abaf148a865ec435fd299e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1984522414}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1152085292
 GameObject:
   m_ObjectHideFlags: 0
@@ -2842,6 +2854,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpGrade: {fileID: 1272848794}
+  case1: {fileID: 2048616826}
+  case2: {fileID: 1042534492}
+  normalButtonImage: {fileID: 21300000, guid: 6a04c7df6ba8409429cbc5e5df8fc414, type: 3}
+  shotgunButtonImage: {fileID: 21300000, guid: bca0544bc90a59f41a31aa6cb63616d3, type: 3}
+  laserButtonImage: {fileID: 21300000, guid: 82719a8dc9d4eef4f9cd6a7a4c6a8dc8, type: 3}
 --- !u!4 &1321356060
 Transform:
   m_ObjectHideFlags: 0
@@ -4566,6 +4583,18 @@ Transform:
   m_Father: {fileID: 1843907425}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2048616826 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3886671426362514062, guid: 433910c4b4abaf148a865ec435fd299e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1984522414}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2090886192
 GameObject:
   m_ObjectHideFlags: 0
