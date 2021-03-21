@@ -80,6 +80,8 @@ public class Player : MonoBehaviour
     {
         GameObject temp;
 
+        Debug.Log(type);
+
         switch (type)
         {
             case Weapon.WeaponType.NORMAL:
@@ -99,9 +101,7 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        temp.GetComponentInChildren<Weapon>().sr.sprite = Resources.Load<Sprite>($"Btn_UI/{names[trains.Count]}");
-        //temp.GetComponent<Image>().sprite = Resources.Load<Sprite>($"Btn_UI/{names[trains.Count]}");
-        //temp.transform.Find("Key").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>($"Btn_UI/{names[trains.Count]}");
+        temp.GetComponentsInChildren<SpriteRenderer>()[1].sprite = Resources.Load<Sprite>($"Btn_UI/{names[trains.Count]}");
 
         temp.transform.parent = GameObject.Find("Player").transform;
         temp.transform.localScale = new Vector3(11, 11, 11);

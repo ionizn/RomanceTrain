@@ -14,7 +14,6 @@ public class Weapon : MonoBehaviour
     public WeaponType weapon_type;
     public float cool_time;
     public float ShootingRate;
-    public SpriteRenderer sr;
 
     string bullet_name;
     Vector3 vec;
@@ -23,9 +22,6 @@ public class Weapon : MonoBehaviour
     Animator animator;
     AudioSource audioSource;
     
-
-    public static int weapon_type_Int { get; set; }
-
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();

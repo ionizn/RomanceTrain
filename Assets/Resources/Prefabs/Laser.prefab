@@ -64,9 +64,8 @@ Transform:
   m_Children:
   - {fileID: 8153934690981527724}
   - {fileID: 5059392370839387602}
-  - {fileID: 2149249460584217121}
   m_Father: {fileID: 8153934690738824099}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8153934689799862554
 MonoBehaviour:
@@ -145,7 +144,6 @@ MonoBehaviour:
   weapon_type: 0
   cool_time: 0
   ShootingRate: 1.5
-  sr: {fileID: 6706781911595906522}
   LazerPrefab: {fileID: 8509598026637719703, guid: 3c2e7b0b4d09fc74eb20e5b0e51ba26d,
     type: 3}
 --- !u!114 &8153934689799862553
@@ -290,6 +288,7 @@ Transform:
   m_LocalPosition: {x: -5.75, y: 0.03, z: 0}
   m_LocalScale: {x: 9, y: 9, z: 9}
   m_Children:
+  - {fileID: 2149249460584217121}
   - {fileID: 8153934689799862558}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -449,12 +448,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8532018933285596872}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0050000087, y: -0.36000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8153934689799862558}
-  m_RootOrder: 2
+  m_Father: {fileID: 8153934690738824099}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6706781911595906522
 SpriteRenderer:
