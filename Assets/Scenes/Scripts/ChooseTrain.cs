@@ -86,19 +86,19 @@ public class ChooseTrain : MonoBehaviour
         {
             Debug.Log("RANDOM -> NORMAL");
             player.GetComponent<Player>().AddTrain(Weapon.WeaponType.NORMAL);
-            case1.sprite = Resources.Load<Sprite>("Sprites/Normal");
+            //case1.sprite = Resources.Load<Sprite>("Sprites/Normal");
         }
         else if (5 >= sel1 && sel1 <= 8)
         {
             Debug.Log("RANDOM -> SHOTGUN");
             player.GetComponent<Player>().AddTrain(Weapon.WeaponType.SHOTGUN);
-            case1.sprite = Resources.Load<Sprite>("Sprites/Shotgun");
+            //case1.sprite = Resources.Load<Sprite>("Sprites/Shotgun");
         }
         else
         {
             Debug.Log("RANDOM -> LASER");
             player.GetComponent<Player>().AddTrain(Weapon.WeaponType.LASER);
-            case1.sprite = Resources.Load<Sprite>("Sprites/Laser");
+            //case1.sprite = Resources.Load<Sprite>("Sprites/Laser");
         }
 
 
@@ -116,17 +116,17 @@ public class ChooseTrain : MonoBehaviour
         if (1 >= sel2 && sel2 <= 4)
         {
             player.GetComponent<Player>().AddTrain(Weapon.WeaponType.NORMAL);
-            case2.sprite = Resources.Load<Sprite>("Sprites/Normal");
+            //case2.sprite = Resources.Load<Sprite>("Sprites/Normal");
         }
         else if (5 >= sel2 && sel2 <= 8)
         {
             player.GetComponent<Player>().AddTrain(Weapon.WeaponType.SHOTGUN);
-            case2.sprite = Resources.Load<Sprite>("Sprites/Shotgun");
+            //case2.sprite = Resources.Load<Sprite>("Sprites/Shotgun");
         }
         else
         {
             player.GetComponent<Player>().AddTrain(Weapon.WeaponType.LASER);
-            case2.sprite = Resources.Load<Sprite>("Sprites/Laser");
+            //case2.sprite = Resources.Load<Sprite>("Sprites/Laser");
         }
 
         audioSource.Play();
