@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
         GameObject.Find("Earth").transform.position = train_poss[0].position;
         TrainHead.transform.position = new Vector3(train_poss[1].position.x, train_poss[1].position.y + 1f, TrainHead.transform.position.z);
         GetComponent<BoxCollider2D>().offset = new Vector2(-19f, GetComponent<BoxCollider2D>().offset.y);
+        trains.Clear();
     }
 
     ~Player()
@@ -76,12 +78,15 @@ public class Player : MonoBehaviour
         {
             case Weapon.WeaponType.NORMAL:
                 temp = Instantiate(Resources.Load("Prefabs/Normal") as GameObject);
+                temp.GetComponentInChildren<Weapon>().weapon_type = Weapon.WeaponType.NORMAL;
                 break;
             case Weapon.WeaponType.SHOTGUN:
                 temp = Instantiate(Resources.Load("Prefabs/Shotgun") as GameObject);
+                temp.GetComponentInChildren<Weapon>().weapon_type = Weapon.WeaponType.SHOTGUN;
                 break;
             case Weapon.WeaponType.LASER:
                 temp = Instantiate(Resources.Load("Prefabs/Laser") as GameObject);
+                temp.GetComponentInChildren<Weapon>().weapon_type = Weapon.WeaponType.LASER;
                 break;
             default:
                 temp = new GameObject();
@@ -92,8 +97,8 @@ public class Player : MonoBehaviour
         int i;
         for (i = 0; i < trains.Count; i++)
         {
-            Debug.Log($"{i} : trains[i] : {trains[i]} : size : {trains.Count}");
-            trains[i].transform.parent.position = train_poss[i + 1].position;
+            Debug.Log($"TRAIN INDEX : {i} / POS INDEX : {trains.Count - 1 - i}");
+            trains[i].transform.parent.position = train_poss[trains.Count - i].position;
         }
         GameObject.Find("Earth").transform.position = train_poss[i + 1].position;
         TrainHead.transform.position = new Vector3(train_poss[i + 2].position.x, train_poss[i + 2].position.y + 1f, TrainHead.transform.position.z);

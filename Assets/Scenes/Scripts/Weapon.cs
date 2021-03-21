@@ -33,7 +33,7 @@ public class Weapon : MonoBehaviour
     }
     public void Attack()
     {
-        if(weapon_type_Int == 0)
+/*        if(weapon_type_Int == 0)
         {
             weapon_type = WeaponType.NORMAL;
         }
@@ -44,7 +44,7 @@ public class Weapon : MonoBehaviour
         else  if (weapon_type_Int == 2)
         {
             weapon_type = WeaponType.LASER;
-        }
+        }*/
 
         if (CanAttack())
         {
