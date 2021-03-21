@@ -12,13 +12,13 @@ public class HealthBar : MonoBehaviour
     {
         if (player != null)
         {
-          //  if (slider.value != player.gameObject.GetComponent<Health>().hp)
-          //      slider.value -= 1;
+            if (slider.value != player.gameObject.GetComponent<Health>().hp)
+                slider.value -= 1;
         }
         else
         {
-     //       if (slider.value != 0)
-      //          slider.value -= 1;
+            if (slider.value != 0)
+                slider.value -= 1;
         }
     }
 }

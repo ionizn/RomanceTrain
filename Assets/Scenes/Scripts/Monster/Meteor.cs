@@ -13,6 +13,7 @@ public class Meteor : MonoBehaviour
     {
         transform.position = pos;
         GetComponent<Animator>().ResetTrigger("isDestroy");
+        GetComponent<BoxCollider2D>().enabled = true;
         gameObject.SetActive(true);
         elapsedTime = 0f;
         deltaY = 0f;

@@ -16,6 +16,12 @@ public class ChooseTrain : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
+    AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void AttiveUpgrade()
     {
         UpGrade.SetActive(true);
@@ -24,8 +30,7 @@ public class ChooseTrain : MonoBehaviour
     public void OnClickCase1()
     {
         int ran = Random.Range(1, 10);
-        
-        Debug.Log(ran);
+       
 
         if(1 <= ran  && ran <= 4)
         {
@@ -46,8 +51,11 @@ public class ChooseTrain : MonoBehaviour
             Weapon.weapon_type_Int = 2;
         }
 
-        GameManager.StartStage = true;
 
+        audioSource.Play();
+
+        GameManager.StartStage = true;
+        GameObject.Find("Player").GetComponent<Health>().hp = 10;
         UpGrade.SetActive(false);
     }
 
@@ -74,7 +82,10 @@ public class ChooseTrain : MonoBehaviour
             Weapon.weapon_type_Int =2;
         }
 
+        audioSource.Play();
+
         GameManager.StartStage = true;
+        GameObject.Find("Player").GetComponent<Health>().hp = 10;
 
         UpGrade.SetActive(false);
     }

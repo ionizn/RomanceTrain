@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Shelter : MonoBehaviour
 {
+    public bool isLastShelter = false;
     private void Start()
     {
         Vector3 pos = new Vector3(34f, -9f, 0f);
         gameObject.transform.Translate(pos);
+        //GetComponent<SpriteRenderer>().sortingOrder = 1;
     }
     //5~-1
     // Update is called once per frame
@@ -30,9 +32,16 @@ public class Shelter : MonoBehaviour
     {
         if(collision.gameObject.name == "Player")
         {
+
+            if (isLastShelter)
+            {
+                SceneManager.LoadScene("Ending");
+                return;
+            }
             Destroy(gameObject);
 
             GameObject.Find("ChooseTrains").GetComponent<ChooseTrain>().AttiveUpgrade();
+            GameObject.Find("GameManager").GetComponent<GameManager>().ScrollStop();
         }
     }
     

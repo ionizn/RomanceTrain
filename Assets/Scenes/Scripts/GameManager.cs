@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,13 +11,16 @@ public class GameManager : MonoBehaviour
     public GameObject StartLogo;
 
     public GameObject Shelter;
+    public GameObject[] Shelters;
+    bool[] used;
     public GameObject ArrivePlanet;
 
     public GameObject MiddleBossPrefab;
     public GameObject LastBossPrefab;
 
-    public Transform VicotryPanel;
+    AudioSource audioSource;
 
+    public Scrolling[] scrolls;
     float elapsedTime = 0f;
     float TotalTime = 0f;
     private bool check = false;
@@ -24,14 +29,16 @@ public class GameManager : MonoBehaviour
     int DiagolonCount = 0;
     int StageCount = 0;
     int Count = 0;
+    public Health playerHealth;
 
     public static bool StartStage = false;
-
+    [SerializeField] private Slider slider;
     //enum
     PROGRESS progress = PROGRESS.START;
     EnemyPattern WavePattern = EnemyPattern.TestEnemy;
 
     int lastStage = 0;
+    bool nextPhaseStarted = false;
 
     enum PROGRESS
     {
@@ -52,6 +59,12 @@ public class GameManager : MonoBehaviour
         Stage2Enemy,
         Stage3Enemy,
         Stage4Enemy
+    }
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        used = Enumerable.Repeat<bool>(false, 5).ToArray<bool>();
     }
 
     IEnumerator Stage1Enemy()
@@ -123,11 +136,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ScrollStop()
+    {
+        foreach (Scrolling scroll in scrolls)
+        {
+            scroll.enabled = false;
+        }
+
+    }
+
+    public void ScrollStart()
+    {
+        foreach (Scrolling scroll in scrolls)
+        {
+            scroll.enabled = true;
+        }
+    }
 
     void SpawnPattern(EnemyPattern pattern)
     {
         switch (pattern)
         {
+            
             case EnemyPattern.Stage1Enemy:
                 {
                     if (TestEnemycount >= 21)
@@ -178,7 +208,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-
+        if(progress != PROGRESS.START && progress != PROGRESS.SHELTER)
+        slider.value += Time.deltaTime; 
         switch (progress)
         {
             //게임 시작
@@ -193,12 +224,17 @@ public class GameManager : MonoBehaviour
 
             case PROGRESS.SHELTER:
                 {
+
                     // 업그레이드 선택 대기 상태
                     //선택 하면 다음 페이즈로 이동
                     if (StartStage == true)
                     {
+
+                        ScrollStart();
+                        audioSource.Play();
                         switch (StageCount)
                         {
+
                             case 1:
                                 progress = PROGRESS.Stage1;
                                 WavePattern = EnemyPattern.Stage1Enemy;
@@ -227,17 +263,46 @@ public class GameManager : MonoBehaviour
             case PROGRESS.Stage0:
                 TotalTime += Time.deltaTime;
 
-                if (elapsedTime >= 2)
+                if (nextPhaseStarted == false)
                 {
+                   // playerHealth.hp = 10;
+                    slider.value = 0;
+                    slider.maxValue = 20;
+                    nextPhaseStarted = true;
+                }
+
+                if (elapsedTime >= 20)
+                {
+                    //쉘터 선택
+                    while(true)
+                    {
+                        int sel = Random.Range(0, 5);
+                        if(!used[sel])
+                        {
+                            Shelter = Shelters[sel];
+                            used[sel] = true;
+                            break;
+                        }
+                    }
                     Instantiate(Shelter);
                     progress = PROGRESS.SHELTER;
                     StageCount = 1;
                     elapsedTime = 0f;
+                    nextPhaseStarted = false;
+
                 }
                 break;
 
             case PROGRESS.Stage1:
                 TotalTime += Time.deltaTime;
+
+                if(nextPhaseStarted == false)
+                {
+                   // playerHealth.hp = 10;
+                    slider.value = 0;
+                    slider.maxValue = 100;
+                    nextPhaseStarted = true;
+                }
 
                 switch (WavePattern)
                 {
@@ -254,17 +319,37 @@ public class GameManager : MonoBehaviour
                 if (Count == 20)
                 {
                     StopCoroutine("Stage1Enemy");
-
+                    //쉘터 선택
+                    while (true)
+                    {
+                        int sel = Random.Range(0, 5);
+                        if (!used[sel])
+                        {
+                            Shelter = Shelters[sel];
+                            used[sel] = true;
+                            break;
+                        }
+                    }
                     Instantiate(Shelter);
                     progress = PROGRESS.SHELTER;
                     StageCount = 2;
                     Count = 0;
                     elapsedTime = 0f;
+                    nextPhaseStarted = false;
+
                 }
                 break;
 
             case PROGRESS.Stage2:
                 TotalTime += Time.deltaTime;
+
+                if (nextPhaseStarted == false)
+                {
+                   // playerHealth.hp = 10;
+                    slider.value = 0;
+                    slider.maxValue = 100;
+                    nextPhaseStarted = true;
+                }
 
                 // 적 생성
                 switch (WavePattern)
@@ -276,23 +361,44 @@ public class GameManager : MonoBehaviour
                             SpawnPattern(EnemyPattern.Stage2Enemy);
                             elapsedTime = 0f;
                             Count++;
+
                         }
                         break;
                 }
                 if (Count == 24)
                 {
                     StopCoroutine("Stage2Enemy");
-
+                    //쉘터 선택
+                    while (true)
+                    {
+                        int sel = Random.Range(0, 5);
+                        if (!used[sel])
+                        {
+                            Shelter = Shelters[sel];
+                            used[sel] = true;
+                            break;
+                        }
+                    }
                     Instantiate(Shelter);
                     progress = PROGRESS.SHELTER;
                     StageCount = 3;
                     Count = 0;
                     elapsedTime = 0f;
+
+                    nextPhaseStarted = false;
                 }
                 break;
 
             case PROGRESS.Stage3:
                 TotalTime += Time.deltaTime;
+
+                if (nextPhaseStarted == false)
+                {
+                   // playerHealth.hp = 10;
+                    slider.value = 0;
+                    slider.maxValue = 180;
+                    nextPhaseStarted = true;
+                }
 
                 // 적 생성
                 switch (WavePattern)
@@ -304,6 +410,7 @@ public class GameManager : MonoBehaviour
                             SpawnPattern(EnemyPattern.Stage3Enemy);
                             elapsedTime = 0f;
                             Count++;
+
                         }
                         break;
                 }
@@ -316,11 +423,22 @@ public class GameManager : MonoBehaviour
                     StageCount = 4;
                     Count = 0;
                     elapsedTime = 0f;
+                    nextPhaseStarted = false;
+
                 }
                 break;
 
             case PROGRESS.Stage4:
                 TotalTime += Time.deltaTime;
+
+        
+                if (nextPhaseStarted == false)
+                {
+                   // playerHealth.hp = 10;
+                    slider.value = 0;
+                    slider.maxValue = 180;
+                    nextPhaseStarted = true;
+                }
 
                 // 적 생성
                 switch (WavePattern)

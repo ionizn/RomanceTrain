@@ -19,9 +19,14 @@ public class Weapon : MonoBehaviour
     public GameObject LazerPrefab;
     private GameObject Laser;
     Animator animator;
+    AudioSource audioSource;
 
     public static int weapon_type_Int { get; set; }
 
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void Start()
     {
         animator = transform.Find("New Sprite").GetComponent<Animator>();
@@ -49,6 +54,7 @@ public class Weapon : MonoBehaviour
             {
                 case WeaponType.NORMAL:
                     {
+                        audioSource.Play();
                         if (gameObject.GetComponent<Health>().isEnemy == false)
                             bullet_name = "Bullet";
                         else
@@ -79,6 +85,7 @@ public class Weapon : MonoBehaviour
                     break;
                 case WeaponType.SHOTGUN:
                     {
+                        audioSource.Play();
                         vec = new Vector3(5f, -0.5f, 0f);
                         bullet_name = "Shotgun";
 
@@ -98,6 +105,7 @@ public class Weapon : MonoBehaviour
                     break;
                 case WeaponType.LASER:
                     {
+                        audioSource.Play();
                         vec = new Vector3(-5f, -0.5f, 0f);
                         Laser = Instantiate(LazerPrefab);
                         Laser.transform.parent = transform.parent;
