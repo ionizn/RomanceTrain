@@ -34,8 +34,8 @@ public class ChooseTrain : MonoBehaviour
 
         //Active 되기 전에 무기 선택
 
-        int sel1 = Random.Range(1, 10);
-        int sel2 = Random.Range(1, 10);
+        /*int */sel1 = Random.Range(1, 10);
+        /*int */sel2 = Random.Range(1, 10);
 
         Debug.Log(sel1);
         Debug.Log(sel2);
