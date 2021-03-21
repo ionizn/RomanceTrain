@@ -34,18 +34,16 @@ public class ChooseTrain : MonoBehaviour
 
         //Active 되기 전에 무기 선택
 
-        /*int */sel1 = Random.Range(1, 10);
-        /*int */sel2 = Random.Range(1, 10);
+        sel1 = Random.Range(1, 10);
+        sel2 = Random.Range(1, 10);
 
-        Debug.Log(sel1);
-        Debug.Log(sel2);
 
-        if (sel1 >=1 || sel1 <= 4)
+        if ( sel1 <= 4)
         {
             case1.sprite = normalButtonImage;
 
         }
-        else if ( sel1 >= 5 || sel1 <= 8)
+        else if ( sel1 >= 5 && sel1 <= 8)
         {
 
             case1.sprite = shotgunButtonImage;
@@ -57,13 +55,13 @@ public class ChooseTrain : MonoBehaviour
 
         }
 
-        if ( sel2 >=1 || sel2 <= 4)
+        if (sel2 <= 4)
         {
 
             case2.sprite = normalButtonImage;
 
         }
-        else if ( sel2 >= 5 || sel2 <= 8)
+        else if ( sel2 >= 5 && sel2 <= 8)
         {
 
             case2.sprite = shotgunButtonImage;
@@ -84,13 +82,13 @@ public class ChooseTrain : MonoBehaviour
     {
 
       
-        if( sel1 >= 1 || sel1 <= 4)
+        if( sel1 <= 4)
         {
             Debug.Log("RANDOM -> NORMAL");
             player.GetComponent<Player>().AddTrain(Weapon.WeaponType.NORMAL);
             //case1.sprite = Resources.Load<Sprite>("Sprites/Normal");
         }
-        else if (sel1 >= 5 || sel1 <= 8)
+        else if (sel1 >= 5 && sel1 <= 8)
         {
             Debug.Log("RANDOM -> SHOTGUN");
             player.GetComponent<Player>().AddTrain(Weapon.WeaponType.SHOTGUN);
@@ -115,13 +113,13 @@ public class ChooseTrain : MonoBehaviour
     {
 
 
-        if (sel2 >= 1|| sel2 <= 4)
+        if ( sel2 <= 4)
         {
             Debug.Log("RANDOM -> NORMAL");
             player.GetComponent<Player>().AddTrain(Weapon.WeaponType.NORMAL);
             //case1.sprite = Resources.Load<Sprite>("Sprites/Normal");
         }
-        else if (sel2>= 5 || sel2 <= 8)
+        else if (sel2>= 5 && sel2 <= 8)
         {
             Debug.Log("RANDOM -> SHOTGUN");
             player.GetComponent<Player>().AddTrain(Weapon.WeaponType.SHOTGUN);
