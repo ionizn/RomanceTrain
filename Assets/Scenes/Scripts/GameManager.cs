@@ -267,11 +267,11 @@ public class GameManager : MonoBehaviour
                 {
                    // playerHealth.hp = 10;
                     slider.value = 0;
-                    slider.maxValue = 20;
+                    slider.maxValue = 10;
                     nextPhaseStarted = true;
                 }
 
-                if (elapsedTime >= 20)
+                if (elapsedTime >= 10)
                 {
                     //쉘터 선택
                     while(true)

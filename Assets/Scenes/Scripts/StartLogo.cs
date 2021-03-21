@@ -10,7 +10,7 @@ public class StartLogo : MonoBehaviour
         Vector3 pos = new Vector3(34f, -3f, 0f);
         gameObject.transform.Translate(pos);
     }
-    //5~-1
+
     // Update is called once per frame
     void Update()
     {
@@ -21,11 +21,11 @@ public class StartLogo : MonoBehaviour
         {
             if (pos.x <= 6f && pos.x >= -1f)
             {
-                gameObject.transform.Translate(-5f * Time.deltaTime, 0f, 0f);
+                gameObject.transform.Translate(-5f * Time.deltaTime*0.5f, 0f, 0f);
             }
             else
             {
-                gameObject.transform.Translate(-60f * Time.deltaTime, 0f, 0f);
+                gameObject.transform.Translate(-60f * Time.deltaTime * 0.5f, 0f, 0f);
             }
         }
        
