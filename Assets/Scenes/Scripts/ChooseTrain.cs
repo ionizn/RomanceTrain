@@ -115,18 +115,21 @@ public class ChooseTrain : MonoBehaviour
 
         if (1 >= sel2 && sel2 <= 4)
         {
+            Debug.Log("RANDOM -> NORMAL");
             player.GetComponent<Player>().AddTrain(Weapon.WeaponType.NORMAL);
-            //case2.sprite = Resources.Load<Sprite>("Sprites/Normal");
+            //case1.sprite = Resources.Load<Sprite>("Sprites/Normal");
         }
         else if (5 >= sel2 && sel2 <= 8)
         {
+            Debug.Log("RANDOM -> SHOTGUN");
             player.GetComponent<Player>().AddTrain(Weapon.WeaponType.SHOTGUN);
-            //case2.sprite = Resources.Load<Sprite>("Sprites/Shotgun");
+            //case1.sprite = Resources.Load<Sprite>("Sprites/Shotgun");
         }
         else
         {
+            Debug.Log("RANDOM -> LASER");
             player.GetComponent<Player>().AddTrain(Weapon.WeaponType.LASER);
-            //case2.sprite = Resources.Load<Sprite>("Sprites/Laser");
+            //case1.sprite = Resources.Load<Sprite>("Sprites/Laser");
         }
 
         audioSource.Play();
